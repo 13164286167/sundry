@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="div" style="width:400px;height:400px;border:1px solid black;margin:200px auto">
+</div>
+</body>
+<script>
+  var divDom = document.getElementById("div")
+     divDom.ondragenter=function(){
+        console.log("可以释放元素");
+    }
+    //离开
+    divDom.ondragleave=function(){
+        console.log("请将图片拖拽到此区域");
+    };
+    //在内部移动
+    divDom.ondragover=function(e){
+        console.log(e)
+        e.preventDefault();
+        console.log("在内部移动")
+    }
+
+    divDom.ondrop=function(e){
+        e.preventDefault();
+        //获取拖过来的文件
+        var fs=e.dataTransfer.files;
+        var len=fs.length; //获取文件个数
+         console.log(fs,"放入")
+    }
+
+
+</script>
+</html>
