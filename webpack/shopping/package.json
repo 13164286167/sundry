@@ -1,0 +1,11 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors"
+  },
+  "author": "tangboo",
+  "license": "ISC"
+}
