@@ -7,6 +7,13 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
+        // publicPath: '/dist/',
         path: __dirname+'/dist'
+    },
+    module: {
+        loaders: [{
+            test:/\.jpg$/,
+            loader: 'css-loader'
+        }]
     }
 }

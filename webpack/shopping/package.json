@@ -1,11 +1,15 @@
 {
   "name": "shopping",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --hot --inline"
+    "start": "webpack-dev-server --progress --colors --hot --inline --open"
   },
   "author": "tangboo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^1.0.1"
+  },
+  "devDependencies": {},
+  "description": ""
 }
