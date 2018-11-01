@@ -1,12 +1,12 @@
 var path = require('path')
 module.exports = {
+    mode: 'development',
     entry: {
-        admin: './admin/index.js',
-        consumer: './consumer/index.js'
+        admin: './src/admin/index.js',
+        consumer: './src/consumer/index.js'
     },
     output: {
-        path: path.jion(__dirname,'dist'),
-        publicPath: '/dist/',
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        path: __dirname+'/dist'
     }
 }
