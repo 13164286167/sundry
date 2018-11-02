@@ -34,6 +34,17 @@ Component({
         console.log(this.username)
         console.log('用户名或密码错误！请重新输入！')
       }
-    }
+    },
+    forname: function(e){
+      this.setData({
+        username:e.detail.value
+      });
+    },
+    forpwd: function (e) {
+      console.log(e)
+      this.setData({
+        userpwd: e.detail.value
+      });
+    },
   }
 })

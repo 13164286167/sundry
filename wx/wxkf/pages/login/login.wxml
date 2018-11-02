@@ -2,8 +2,8 @@
 <view class=''>
   <view>
     
-    <input type='text' placeholder='请输入用户名' value='{{username}}'></input>
-    <input type='password' placeholder='请输入密码' value='{{userpwd}}'></input>
+    <input type='text' placeholder='请输入用户名'  bindinput='forname'></input>
+    <input type='password' placeholder='请输入密码'  bindinput='forpwd'></input>
   </view>
   <view class='container'>
     <button bindtap='btnLogin' type='primary'>登陆</button>
