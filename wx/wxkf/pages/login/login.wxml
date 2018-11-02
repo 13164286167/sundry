@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class=''>
+  <view>
+    
+    <input type='text' placeholder='请输入用户名' value='{{username}}'></input>
+    <input type='password' placeholder='请输入密码' value='{{userpwd}}'></input>
+  </view>
+  <view class='container'>
+    <button bindtap='btnLogin' type='primary'>登陆</button>
+    <button bindtap='back'>主页</button>
+  </view>
+  
+</view>
