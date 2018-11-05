@@ -9,6 +9,7 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log('登陆成功！')
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })

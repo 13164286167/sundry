@@ -1,1 +1,43 @@
 /* pages/login/login.wxss */
+.main {
+  width: 80%;
+  margin: 10% auto;
+}
+.logo_box {
+  margin-top: 150rpx;
+  margin-bottom: 50rpx;
+}
+.logo_img {
+  margin-bottom:30rpx;
+}
+.logo_name {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+.content_box {
+  margin-top: 50rpx;
+}
+.content_title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.content_detail {
+  font-size: 12px;
+  
+}
+.detail {
+  margin-left: 25rpx;
+  color: #666;
+}
+.btn {
+  margin-top: 80rpx;
+  background: rgb(12, 216, 97);
+  color: #fff;
+}
+.button-hover {
+  background: rgb(10, 187, 119);
+}

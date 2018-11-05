@@ -8,3 +8,21 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.logo_img {
+  height: 122rpx;
+  width: 181rpx;
+  display: block;
+  margin: 0 auto;
+}
+.fgx {
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+}
+.point {
+  width: 11rpx;
+  height: 11rpx;
+  border-radius: 50%;
+  background: #666;
+  float: left;  
+  margin-top:12rpx;
+}
