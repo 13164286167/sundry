@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/user/user",
     "pages/logs/logs",
-    "pages/food/food"
+    "pages/food/food",
+    "pages/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",
