@@ -1,0 +1,14 @@
+/* pages/banner/banner.wxss */
+.banner {
+  height: 480rpx;
+  width: 100%;
+
+}
+.slide-image {
+  width: 100%;
+  
+} 
+.slide>swiper {
+  width: 100%;
+  height: 480rpx;
+}

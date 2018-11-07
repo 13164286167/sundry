@@ -1,0 +1,19 @@
+<loading hidden="{{show}}">宝宝加载中...</loading>
+<view class='main' wx:if="{{show}}">
+  <view class='header_text'>
+    <view>新疆美食千千万，</view>
+    <view>这些只是冰山一小角。</view>
+    <view>推荐60个美食！</view> 
+    <!-- <icon type='download' color='#000'></icon> -->
+    <image  class="donghua" src="{{'http://188.131.155.157/wxkf/'+imgUrls[8]}}" width="30rpx"></image>
+  </view>
+  <view class='ms1'>
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <image src="{{'http://188.131.155.157/wxkf/'+item}}" mode='widthFix'></image>
+    </block>
+  </view>
+  <view class='footer_text'>
+    <view>烧烤系列的东西不要太带劲...</view>
+    <view>边写边流口水...</view>
+  </view>
+</view>

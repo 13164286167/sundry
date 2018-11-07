@@ -60,16 +60,11 @@ Page({
     //     console.log(res)
     //   }
     // })
-    wx.getLocation({
-      type: 'wgs84',
-      success: (res) => {
-        var latitude = res.latitude // 纬度
-        var longitude = res.longitude // 经度
-        console.log(res)
-        wx.navigateTo({
-          url: '../login/login',
-        })
-      }
-    })
+    setTimeout(()=>{
+      wx.navigateTo({
+        url: '../food/food',
+      })
+    },500)
+   
   }
 })

@@ -11,3 +11,4 @@
     <button bindtap="clickMe" class="btnmotto">{{motto}}</button>
   </view>
 </view>
+

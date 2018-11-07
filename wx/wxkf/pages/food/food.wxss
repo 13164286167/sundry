@@ -1,0 +1,25 @@
+/* pages/food/food.wxss */
+.ms1 {
+  height: 100%;
+ 
+}
+.ms1 image {
+  height: auto;
+  width: 100%;
+}
+.main {
+  height: 100%;
+  width: 100%;
+}
+.donghua {
+  width: 60rpx;
+  height: 80rpx;
+}
+.header_text {
+  text-align: center; 
+  color: rgb(212, 65, 39);
+}
+.footer_text {
+  text-align: center;
+  color: rgb(129, 204, 16);
+}

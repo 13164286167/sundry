@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "冰山一角",
+  "usingComponents": {
+    "banner" : "/components/banner/banner"
+  }
+}

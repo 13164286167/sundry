@@ -1,21 +1,23 @@
 /**index.wxss**/
+page {
+  background-image: url('http://bpic.588ku.com/back_pic/04/28/42/42583d8efda5a55.jpg!/fw/260/quality/90/unsharp/true/compress/true') ;
+  background-position: top left;
+  background-size: cover;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-
 .userinfo-nickname {
   color: #aaa;
 }
-
 .usermotto {
   margin-top: 200px;
 }

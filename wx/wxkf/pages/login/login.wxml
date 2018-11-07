@@ -15,5 +15,4 @@
     </view>
   </view>
   <button class='btn' bindtap='btnClick'>确认登陆</button>
-
 </view>

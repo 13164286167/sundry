@@ -27,9 +27,10 @@ Component({
     btnClick: function(){
       this.setData({
         comfire: true
-      }),
-      console.log(wx.getStorageSync('2'))
-     
+      });
+      wx.navigateTo({
+        url: '../banner/banner',
+      })
     }
   }
 })
