@@ -8,7 +8,7 @@
     <script src="echarts.js"></script>
 </head>
 <body>
-    <div id="main" style="width: 600px;height:400px;"></div>    
+    <div id="main" style="width:800px;height:800px;"></div>    
     <script>
      // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
@@ -18,11 +18,13 @@
         series: [{
             name: '人群分布',
             type: 'pie',
+            // radius: '55%',
             data: [
                 {name:"AA",value:18},
                 {name:"BB",value:12},
                 {name:"CC",value:10},
-            ]
+            ],
+            
         }]
     };
 
