@@ -11,17 +11,14 @@ Page({
   bannerClick: function(e){
     console.log(e)
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  requestImg: function(){
     var that = this;
     wx.request({
       url: 'http://188.131.155.157/wxkf/data/getFood.php',
-      success:function(result){
+      success: function (result) {
         var data = result.data;
         var urlArr = [];
-        data.map((item)=>{
+        data.map((item) => {
           urlArr.push(item.img)
         });
         that.setData({
@@ -31,10 +28,16 @@ Page({
           imgUrls: urlArr
         });
       },
-      fail: function(error){
+      fail: function (error) {
         console.log(error)
       }
     });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.requestImg();
     
   },
 
@@ -42,12 +45,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
   },
 
   /**
