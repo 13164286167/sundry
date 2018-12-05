@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <router-link to="nav">传参数：{{ msg }}</router-link>
+    <router-link to="nav">传参数：{{ msg||"默认值" }}</router-link>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   },
   data () {
     return {
-      msg: '默认值'
+      msg: ''
     }
   }
 }

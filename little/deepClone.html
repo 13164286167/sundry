@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function deepClone1(obj){
+      let cloneObj = Array.isArray(obj) ? [] : {};
+      if(obj && typeof obj === "object"){
+        // if()
+        for(key in obj){
+          if(obj[key] && typeof obj[key] === "object"){
+            cloneObj[key] = deepClone1(obj[key]);
+          }else{
+            cloneObj[key] = obj[key];
+          }
+        }
+      }
+      return cloneObj;
+    }
+    function deepClone2(obj){
+      let cloneObj = JSON.stringify(obj);
+      return JSON.parse(cloneObj)
+    }
+    let a = {
+      name:"jiaobaobao",
+      age:"24",
+      interest:["play bb","watch tv"]
+    }
+    let b = deepClone1(a); 
+    a.name = "ccc"
+    a.interest[0]="papapa"
+    console.log("a->",a)
+    console.log("b->",b)
+  </script>
+</body>
+</html>
