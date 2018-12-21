@@ -11,7 +11,6 @@
     function deepClone1(obj){
       let cloneObj = Array.isArray(obj) ? [] : {};
       if(obj && typeof obj === "object"){
-        // if()
         for(key in obj){
           if(obj[key] && typeof obj[key] === "object"){
             cloneObj[key] = deepClone1(obj[key]);

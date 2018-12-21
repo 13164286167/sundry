@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="nav">
         <!-- <router-link to="/">Click To HelloWorld</router-link> -->
         <div style="cursor:pointer" @click="handleClick">Click To HelloWorld</div>
     </div>
@@ -20,4 +20,7 @@ export default {
 }
 </script>
 <style scoped>
+    .nav{
+        
+    }
 </style>
