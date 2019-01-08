@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>layout</title>
+  <style>
+    html *{
+      margin: 0;
+      padding: 0;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <section>
+    <div>
+      <h1>优缺点</h1>
+      优点：兼容性好
+      缺点：浮动造成的影响
+    </div>
+  </section>
+  <section class="layout float">
+    <style>
+      .layout.float .left-center-right{
+        /* overflow: hidden; */
+      }
+      .layout.float .left-center-right>div{
+        min-height: 100px;
+      }
+      .layout.float .left-center-right .left{
+        float: left;
+        width: 300px;
+        background: blue;
+      }
+      .layout.float .left-center-right .center{
+        background: yellow;
+      }
+      .layout.float .left-center-right .right{
+        float: right;
+        width: 300px;
+        background: green;
+      }
+    </style>
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <h1>三栏布局解决方案</h1>
+        <p>浮动解决方案</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+      </div>
+    </article>
+  </section>
+  <section class="layout absolute">
+    <style>
+      .layout.absolute{
+        margin-top: 10px;
+      }
+      .layout.absolute .left-center-right>div{
+        min-height: 100px;
+        position: absolute;
+      }
+      .layout.absolute .left-center-right .left{
+        left: 0;
+        width: 300px;
+        background: blue;
+      }
+      .layout.absolute .left-center-right .center{
+        background: yellow;
+        left: 300px;
+        right: 300px;
+      }
+      .layout.absolute .left-center-right .right{
+        right: 0;
+        width: 300px;
+        background: green;
+      }
+    </style>
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        <h1>三栏布局解决方案</h1>
+        <p>绝对定位解决方案</p>
+        <p>中间部分</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <section class="layout flex">
+    <style>
+      .layout.flex{
+        margin-top: 120px;
+      }
+      .layout.flex .left-center-right{
+        display: flex;
+      }
+      .layout.flex .left-center-right>div{
+        min-height: 100px;
+        
+      }
+      .layout.flex .left-center-right .left{
+        width: 300px;
+        background: blue;
+      }
+      .layout.flex .left-center-right .center{
+        background: yellow;
+        flex: 1;
+      }
+      .layout.flex .left-center-right .right{
+        width: 300px;
+        background: green;
+      }
+    </style>
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        <h1>三栏布局解决方案</h1>
+        <p>浮动解决方案</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+        <p>中间部分</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+
+  <section class="layout table">
+      <style>
+        .layout.table{
+          margin-top: 10px;
+        }
+        .layout.table .left-center-right{
+          display: table;
+        }
+        .layout.table .left-center-right>div{
+          height: 100px;
+          display: table-cell;
+        }
+        .layout.table .left-center-right .left{
+          width: 300px;
+          min-width: 300px;
+          background: blue;
+        }
+        .layout.table .left-center-right .center{
+          width: 100%;
+          background: yellow;
+        }
+        .layout.table .left-center-right .right{
+          width: 300px;
+          min-width: 300px;
+          background: green;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>三栏布局解决方案</h1>
+          <p>table布局解决方案</p>
+          <p>中间部分</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+
+  <section class="layout grid">
+      <style>
+        .layout.grid{
+          margin-top: 10px;
+        }
+        .layout.grid .left-center-right{
+          display: grid;
+          grid-template-columns: 300px auto 300px;
+          /* grid-template-rows: auto auto auto; */
+        }
+        .layout.grid .left-center-right>div{
+          min-height: 100px;
+        }
+        .layout.grid .left-center-right .left{
+          background: blue;
+        }
+        .layout.grid .left-center-right .center{
+          background: yellow;
+        }
+        .layout.grid .left-center-right .right{
+          background: green;
+        }
+      </style>
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>三栏布局解决方案</h1>
+          <p>grid布局解决方案</p>
+          <p>中间部分</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+</body>
+</html>
