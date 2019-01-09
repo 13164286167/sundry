@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFC</title>
+  <style>
+    html *{
+      margin: 0;
+      padding: 0;
+    }
+    section{
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 解决外边距重叠 -->
+  <section id="margin">
+    <style>
+      #margin .container{
+        background:rgb(0, 66, 128);
+        overflow: hidden;
+      }
+      #margin .container p{
+        margin: 10px 0;
+        background: rgb(51, 128, 0);
+      }
+      .newBfc{
+        overflow: hidden;
+      }
+    </style>
+    <article class="container">
+      <p>P11111</p>
+      <p>P22222</p>
+      <div class="newBfc">
+        <p>P33333</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 解决浮动不能撑起父元素 -->
+  <section id="float">
+    <style>
+      #float{
+        overflow: hidden;
+      }
+      #float .container{
+        background: yellow;
+        float: left;
+        /* overflow: hidden; */
+        /* display: inline-block; */
+        border: 1px solid black;
+      }
+      #float .container>div{
+        float: left;
+        height: 100px;
+        width: 100px;
+        background: skyblue;
+        margin: 10px;
+      }
+    </style>
+    <article class="container">
+      <div></div>
+      <div></div>
+    </article>
+  </section>
+
+  <!-- 解决文字环绕问题  -->
+  <section id="font">
+    <style>
+      #font .container>div{
+        float: left;
+        width: 100px;
+        height: 50px;
+        background:skyblue;
+      }
+      #font .container>p{
+        overflow: hidden;
+      }
+    </style>
+    <article class="container">
+     <div></div>
+     <p>First let us understand why the text wraps. For this we have to understand how the box model works when an element is floated. This is the part I left earlier while discussing the alignment in a block formatting context. Let us understand what is happening in Figure 1 in the diagram below:
+        First let us understand why the text wraps. For this we have to understand how the box model works when an element is floated. This is the part I left earlier while discussing the alignment in a block formatting context. Let us understand what is happening in Figure 1 in the diagram below.</p>
+    </article>
+  </section>
+
+  <section>
+    <style>
+      .column {
+        width: 31.33%;
+        background-color: green;
+        float: left;
+        margin: 0 1%;
+      }
+      /*  Establishing a new block formatting 
+          context in the last column */
+      .column:last-child {
+          overflow: hidden; 
+      }
+    </style>
+      <div class="container">
+          <div class="column">column 1</div>
+          <div class="column">column 2</div>
+          <div class="column">column 3</div>
+      </div>
+  </section>
+</body> 
+</html>

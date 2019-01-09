@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D</title>
+  <style>
+    html *{
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <article id="ad" style="transform:rotateY(0deg);">
+    <style>
+      #ad{
+        transform-style: preserve-3d;
+        transition: 2s;
+        width: 160px;
+        height: 600px;
+        margin: 100px auto;
+      }
+      #ad>div{
+        width: 160px;
+        height: 600px;
+        position: absolute;
+        transform-origin: center center 0px;
+        perspective: 10000px;
+      }
+      #ad .left{
+        background: url('http://pagead2.googlesyndication.com/sadbundle/13557545581714465641/1.jpg');
+        transform:rotateY(0deg) translateZ(46px);
+      }
+      #ad .center{
+        background: url('http://pagead2.googlesyndication.com/sadbundle/13557545581714465641/2.jpg');
+        transform:rotateY(120deg) translateZ(46px);
+
+      }
+      #ad .right{
+        background: url('http://pagead2.googlesyndication.com/sadbundle/13557545581714465641/3.jpg');
+        transform:rotateY(240deg) translateZ(46px);
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </article>
+  <script>
+    let ad = document.getElementById("ad");
+    let transform = ad.style.transform;
+    let angle = parseInt(transform.slice(transform.indexOf("(") + 1,transform.indexOf("deg")));
+    setInterval(()=>{
+      angle += 120;
+      ad.style.transform = "rotateY("+angle+"deg)";
+    },2000)
+  </script>
+</body>
+</html>
