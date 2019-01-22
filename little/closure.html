@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <button>按钮0</button>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+
+  <script>
+    let btn = document.getElementsByTagName("button");
+    // for(let i = 0,len = btn.length; i < len; i++){
+    for(var i = 0,len = btn.length; i < len; i++){
+      btn[i].onclick = function(n){
+        return function(){
+          alert("我是第"+n+"个按钮！");
+        }
+      }(i)
+    }
+
+
+  </script> -->
+  <style>
+    html *{
+      margin: 0;
+      padding: 0;
+    }
+    #count{
+      text-align: center;
+      margin: 500px auto;
+    }
+    input{
+      width: 50px;
+
+    }
+  </style>
+  <div id="count">
+    <div>
+      <span id="sum">0</span>
+    </div>
+    <button id="agree">赞同(0)</button>
+    <button id="disagree">反对(0)</button>
+  </div>
+  <script>
+    let agree = document.getElementById("agree");
+    let disagree = document.getElementById("disagree");
+    let count = document.getElementById("count");
+    let sum =document.getElementById("sum");
+    (function(){
+      var i = 0;
+      var j = 0;
+      var z = 0;
+      count.onclick = function(e){
+        if(e.target.id === "agree"){
+          i++;
+        }else if(e.target.id === "disagree"){
+          j++;
+        }
+        agree.innerHTML = "赞同("+i+")";
+        disagree.innerHTML = "反对("+j+")";
+        z++;
+        sum.innerHTML = z;
+      }
+    })();
+  </script>
+</body>
+</html>
