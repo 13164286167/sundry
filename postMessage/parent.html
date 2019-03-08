@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="child.html" frameborder="0" id="child"></iframe>
+  <input type="text" id="pinput">
+  <input type="button" value="parentSend" id="pbutton">
+  <input type="button" value="opennew" id="openNew">
+  <script>
+    let newWindow;
+    function receiveMessage(e){
+      pinput.value = e.data;
+      console.log("parent接收到了child的消息",e.data)
+    }
+    window.addEventListener("message",receiveMessage,false)
+    pbutton.onclick = function(){
+      child.contentWindow.postMessage("parent's message","*")
+      
+    }
+    
+    openNew.onclick = function(){
+      newWindow = window.open("child2.html")
+      newWindow.onload = function(){
+        console.log("加载完毕")
+        newWindow.postMessage("parent给child2发送的数据","*")
+
+      }
+    }
+    function handleChild2(e){
+      console.log("接收到child2的消息",e.data)
+    }
+  </script>
+</body>
+</html>
