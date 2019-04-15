@@ -11,7 +11,7 @@
   <input type="button" value="childSend" id="button">
   <script>
     document.getElementById("button").onclick = function(){ 
-      console.log(window.parent === window)
+      console.log(window.opener === window)
       window.opener.postMessage(document.getElementById("input").value,"http://127.0.0.1:5500")
     }
     function handleParent(e){

@@ -1,73 +1,51 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="author" content="http://www.softwhy.com/" />
-<title>蚂蚁部落</title>
-<style>
-div {
-  margin: 0 auto;
-  width: 150px;
-  height: 100px;
-  background: red;
-  position: relative;
-}
-  
-@keyframes wobble {
-  0%,
-  10%,
-  20%,
-  30%,
-  40%,
-  50%,
-  60%,
-  70%,
-  80%,
-  90%,
-  100% {
-    transform: translateY(-2%);
-  }
-  5%,
-  15%,
-  25%,
-  35%,
-  45%,
-  55%,
-  65%,
-  75%,
-  85%,
-  95% {
-    transform: translateY(2%);
-  }
-}
-#box1 {
-  width:20px;
-  height: 20px;
-  background-color: pink;
-  position: absolute;
-  top: 0;
-  left: -20px;
-}
-</style>
-<script>
-window.onload = function () {
-  var box1 = document.getElementById('box1');
-  var box = document.getElementById('box');
-  var timer = true
-  box1.onclick = function () {
-    if (timer) {
-      box.style.animation = "wobble 4s infinite both"
-    } else {
-      box.style.animation = null;
-    }
-    // timer = !timer;
-  }
-} 
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <body>
-<div id="box">
-  <div id="box1"></div>
-</div>
+  <script>
+    function Book(name,title) {
+      var i = 1;
+      return function(name,title){
+        this.name = name;
+        this.title = title;
+        this.id = i++;
+      }
+    }
+    let newBook =  new Book();
+    console.log(newBook)
+    let book1 = new newBook("book1","title1")
+    let book2 = new newBook("book2","title2")
+    console.log(book1.id,book2.id)
+    console.log(book1.name,book2.name)
+
+    var i = 1;
+  
+    class People{
+      constructor(name){
+        this.name = name
+      }
+      get id(){
+        return i++;
+      }
+      printId(){
+        console.log(this.id)
+        return this;
+      }      
+      printName(){
+        console.log(this.name);
+        return this;
+      }
+    }
+    let p1 = new People("p1");
+    let p2 = new People("p2");
+    p1.id = 10;
+    p1.printId().printName();
+    p2.printId();
+  </script>
 </body>
 </html>
