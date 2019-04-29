@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  
+  body{
+  overflow: hidden;
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+  .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 19.20rem;
+    height: 10.80rem;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+body, html {
+  margin: 0px;
+  height: 100%;
+}
+body{
+  background-color: rgba(255, 192, 203, 0.555);
+}
+</style>
+<body>
+  <!-- <input type="text"> -->
+  <div class="container">
+  </div>
+  <script src="./pixi.js"></script>
+  <script src="./preload.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+
+    window.app = new PIXI.Application({
+        width: 1920,
+        height: 1080,
+        autoSize: true,
+        transparent: true //背景是否设为透明
+    })
+    app.view.style.width = '19.2rem';
+    app.view.style.height = '10.8rem';
+    document.getElementsByClassName("container")[0].appendChild(app.view);
+
+    let style = {
+      fontSize:30,
+      align:"center",
+      fill:"#000",
+    }
+    let textArr = ["想你","爱你","抱抱"];
+    function copyCon(text="爱你"){
+      let con = new PIXI.Container();
+
+      let showText = createText(text,{style})
+      let heart = new PIXI.Sprite.fromImage('./our.png');
+      heart.y = -8;
+      let heartMask = new PIXI.Sprite.fromImage('./heart.png');
+      heartMask.y = -5;
+
+      heart.width = 50;
+      heart.height = 50;
+      console.log("%c娇宝宝最美啦~✌️️️","color:#FF323B;font-weight:bold;")
+      con.addChild(showText)
+      let mask = new PIXI.Graphics();
+      mask.lineStyle(2,0x0000FF,1);
+      mask.beginFill(0xFF700B,1);
+      mask.drawRect(-100,0,100,50);
+      mask.endFill();
+      showText.addChild(mask)
+      showText.mask = mask;
+      let box = new PIXI.Container();
+      box.addChild(showText)
+      box.addChild(heart)
+      box.addChild(heartMask)
+      heart.mask = heartMask; 
+      box.x = 100;
+      box.y = 100;
+      con.addChild(box)
+      app.ticker.add(function(delta) {
+        heart.x += 1 * delta;
+        mask.x += 1 * delta;
+        heartMask.x += 1*delta;
+        if(heart.x > 80){
+          heart.x = 0;
+          mask.x = 0;
+          heartMask.x = 0;
+        }
+      });
+      return con;
+    }
+    function handleClick(){
+      let random = parseInt(Math.random() * 3 );
+      let randomX = parseInt(Math.random()*1500)
+      let randomY = parseInt(Math.random()*800)
+      let text = textArr[random]
+      let con = copyCon(text);
+      con.x = randomX;
+      con.y = randomY;
+      app.stage.addChild(con)
+    }
+      document.body.addEventListener("click",handleClick) 
+  </script>
+  
+</body>
+</html>
