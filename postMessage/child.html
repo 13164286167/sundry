@@ -5,11 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .child{
+      border:1px solid red;
+     
+    }
+  </style>
 </head>
 <body>
-  <input type="text" value="send" id="input">
-  <input type="button" value="childSend" id="button">
-  <script>
+  <div class="child">
+    <input type="text" value="send" id="input">
+    <input type="button" value="childSend" id="button">
+  </div>
+    <script>
     let data = {"a":1,"b":2,"c":[1,2,3]}
     document.getElementById("button").onclick = function(){ 
       console.log(window.parent === window)
@@ -18,7 +26,8 @@
     }
     function handleParent(e){
       console.log("child接到了parent的消息",e)
-      document.getElementById("input").value = e.data;
+      let date = new Date().toLocaleTimeString();
+      document.getElementById("input").value = date;
     }
 
     window.addEventListener("message",handleParent,false)

@@ -10,7 +10,7 @@
   <iframe src="child.html" frameborder="0" id="child"></iframe>
   <input type="text" id="pinput">
   <input type="button" value="parentSend" id="pbutton">
-  <input type="button" value="opennew" id="openNew">
+  <!-- <input type="button" value="opennew" id="openNew"> -->
   <script>
     let newWindow;
     function receiveMessage(e){
@@ -19,18 +19,19 @@
     }
     window.addEventListener("message",receiveMessage,false)
     pbutton.onclick = function(){
-      child.contentWindow.postMessage("parent's message","*")
+      let sendDate =  new Date().toLocaleTimeString();
+      child.contentWindow.postMessage(sendDate,"*")
       
     }
     
-    openNew.onclick = function(){
-      newWindow = window.open("child2.html")
-      newWindow.onload = function(){
-        console.log("加载完毕")
-        newWindow.postMessage("parent给child2发送的数据","*")
+    // openNew.onclick = function(){
+    //   newWindow = window.open("child2.html")
+    //   newWindow.onload = function(){
+    //     console.log("加载完毕")
+    //     newWindow.postMessage("parent给child2发送的数据","*")
 
-      }
-    }
+    //   }
+    // }
     function handleChild2(e){
       console.log("接收到child2的消息",e.data)
     }

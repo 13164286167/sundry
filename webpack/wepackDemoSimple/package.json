@@ -1,0 +1,28 @@
+{
+  "name": "wepackdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.34.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "start": "webpack",
+    "server": "webpack-dev-server --open"
+  },
+  "author": "",
+  "license": "ISC"
+}

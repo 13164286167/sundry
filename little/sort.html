@@ -8,92 +8,148 @@
 </head>
 <body>
   <script>
-    let arr = [1,5,16,12,2,0,7,66,85,1,5,16,12,2,0,7,66,85];
-    console.log("原始数组",arr)
-    //冒泡排序
-    function bubbleSort(arr){
-      let num = 0;
-      let start = new Date();
-      let length = arr.length;
-      for(let i = 0 ; i < length-1; i++){
-        for(let j= 0; j<length-1;j++){
-          if(arr[j] > arr[j+1]){
-            // arr[j] ^= arr[j+1];
-            // arr[j+1] ^= arr[j];
-            // arr[j] ^= arr[j+1];
-            [arr[j],arr[j+1]]=[arr[j+1],arr[j]] 
-          }
-            num ++;
-        }
-      }
-      let end = new Date();
-      let run = end - start; 
-      console.log("冒泡排序时间",run,"循环次数",num)
-      console.log(arr);
-    }
-    // 选择排序
-    function selectionSort(arr){
-      let num = 0;
-      let start = new Date();
-      let length = arr.length;
-      for(let i = 0; i < length; i++){
-        let minIndex = i;
-        for(let j = i + 1; j < length; j++){
-          if(arr[j] < arr[minIndex]){
-            minIndex = j ;
-          }
-          num ++;
-        }
-        [arr[i],arr[minIndex]]=[arr[minIndex],arr[i]]
-      }
-      let end = new Date();
-      let run = end - start;
-      console.log("选择排序时间",run,"循环次数",num)
-      console.log(arr)
-    }
+    // let arr = [1,5,16,12,2,0,7,66,85,1,5,16,12,2,0,7,66,85];
+    // console.log("原始数组",arr)
+    // //冒泡排序
+    // function bubbleSort(arr){
+    //   let num = 0;
+    //   let start = new Date();
+    //   let length = arr.length;
+    //   for(let i = 0 ; i < length-1; i++){
+    //     for(let j= 0; j<length-1;j++){
+    //       if(arr[j] > arr[j+1]){
+    //         // arr[j] ^= arr[j+1];
+    //         // arr[j+1] ^= arr[j];
+    //         // arr[j] ^= arr[j+1];
+    //         [arr[j],arr[j+1]]=[arr[j+1],arr[j]] 
+    //       }
+    //         num ++;
+    //     }
+    //   }
+    //   let end = new Date();
+    //   let run = end - start; 
+    //   console.log("冒泡排序时间",run,"循环次数",num)
+    //   console.log(arr);
+    // }
+    // // 选择排序
+    // function selectionSort(arr){
+    //   let num = 0;
+    //   let start = new Date();
+    //   let length = arr.length;
+    //   for(let i = 0; i < length; i++){
+    //     let minIndex = i;
+    //     for(let j = i + 1; j < length; j++){
+    //       if(arr[j] < arr[minIndex]){
+    //         minIndex = j ;
+    //       }
+    //       num ++;
+    //     }
+    //     [arr[i],arr[minIndex]]=[arr[minIndex],arr[i]]
+    //   }
+    //   let end = new Date();
+    //   let run = end - start;
+    //   console.log("选择排序时间",run,"循环次数",num)
+    //   console.log(arr)
+    // }
 
-    //插入排序
-    function insertionSort(arr) {
-      var length = arr.length;
-      var preIndex, current;
-      for (var i = 1; i < length; i++) {
-          preIndex = i - 1;
-          current = arr[i];
-          while (preIndex >= 0 && arr[preIndex] > current) {
-              arr[preIndex + 1] = arr[preIndex];
-              preIndex--;
-          }
-          arr[preIndex + 1] = current;
-      }
-      return arr;
-    }
-    //快速排序
-    function quickSort(arr) {
-      //判断是否小于1
-      if(arr.length <= 1){
-        return arr;
-      }
-      //取中间点
-      let midIndex = Math.floor(arr.length / 2);
-      let mid = arr.splice(midIndex,1)[0];
-      //分左右数组
-      let left = [];
-      let right = [];
-      for(let i = 0; i<arr.length;i++){
-        if(arr[i] < mid){
-          left.push(arr[i]);
-        }else{
-          right.push(arr[i])
-        }
-      }
-      //递归
-      return quickSort(left).concat([mid],quickSort(right))
-    }
+    // //插入排序
+    // function insertionSort(arr) {
+    //   var length = arr.length;
+    //   var preIndex, current;
+    //   for (var i = 1; i < length; i++) {
+    //       preIndex = i - 1;
+    //       current = arr[i];
+    //       while (preIndex >= 0 && arr[preIndex] > current) {
+    //           arr[preIndex + 1] = arr[preIndex];
+    //           preIndex--;
+    //       }
+    //       arr[preIndex + 1] = current;
+    //   }
+    //   return arr;
+    // }
+    // //快速排序
+    // function quickSort(arr) {
+    //   //判断是否小于1
+    //   if(arr.length <= 1){
+    //     return arr;
+    //   }
+    //   //取中间点
+    //   let midIndex = Math.floor(arr.length / 2);
+    //   let mid = arr.splice(midIndex,1)[0];
+    //   //分左右数组
+    //   let left = [];
+    //   let right = [];
+    //   for(let i = 0; i<arr.length;i++){
+    //     if(arr[i] < mid){
+    //       left.push(arr[i]);
+    //     }else{
+    //       right.push(arr[i])
+    //     }
+    //   }
+    //   //递归
+    //   return quickSort(left).concat([mid],quickSort(right))
+    // }
 
-    bubbleSort(arr);
-    selectionSort(arr);
-    console.log(insertionSort(arr));
-    console.log(quickSort(arr))
+    // bubbleSort(arr);
+    // selectionSort(arr);
+    // console.log(insertionSort(arr));
+    // console.log(quickSort(arr))
+
+/**
+ * 这个数组是所有的数据
+ */
+// let AllArr=[{
+// 	"id": 19,
+// 	"title": "IT技术研发",
+// 	"description": "IT技术研发",
+// 	"level": 1,
+// 	"parent_id": 10
+// }, {
+// 	"id": 20,
+// 	"title": "产品运营",
+// 	"description": "产品运营",
+// 	"level": 1,
+// 	"parent_id": 10
+// }, {
+// 	"id": 21,
+// 	"title": "产品设计",
+// 	"description": "产品设计",
+// 	"level": 1,
+// 	"parent_id": 10
+// }]
+// /**
+//  * 这个数组是已经选择的数据 
+//  */
+// let selectArr=[{
+// 	"id": 19,
+// 	"title": "IT技术研发",
+// 	"description": "IT技术研发",
+// 	"level": 1,
+// 	"parent_id": 10
+// }, {
+// 	"id": 20,
+// 	"title": "产品运营",
+// 	"description": "产品运营",
+// 	"level": 1,
+// 	"parent_id": 10
+// }]
+
+
+// //怎么做到  在所有的数据中排除掉已选择的数据，留下未选择过的数据，也就是id=21的那个数据呢？
+
+// function screeningData(val1,val2){
+// 	let hash = {} , arr= [...val1,...val2];
+// 	let newArr = arr.reduce((item, next) => {
+// 		hash[next.id] ? item.splice(next, 1) : hash[next.id] = true && item.push(next);
+// 		return item
+// 	}, []);
+// 	return newArr;
+// };
+// let arr = screeningData(AllArr,selectArr);
+
+// console.log(arr)
+
+    
   </script>
 </body>
 </html>
