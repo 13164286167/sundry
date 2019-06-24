@@ -1,0 +1,4 @@
+@value v-color: #cccccc
+#root {
+  background: v-color;
+}
