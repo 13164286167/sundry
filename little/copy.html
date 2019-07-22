@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    
+	<title>自定义网页</title>
+  </head>
+  <body>
+    <div id="lx">
+	   李欣是只猪
+	</div>
+	<input type="text" value="AJS4EFS" readonly id="textAreas"/>
+<!--右边是一个按钮-->
+	 <a href="javascript:;" class="cuteShareBtn" id="copy">复制</a>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+	//定义函数
+window.Clipboard = (function(window, document, navigator) {
+  var textArea,
+      copy;
+
+  // 判断是不是ios端
+  function isOS() {
+    return navigator.userAgent.match(/ipad|iphone/i);
+  }
+  //创建文本元素
+  function createTextArea(text) {
+    textArea = document.createElement('textArea');
+    textArea.innerHTML = text;
+    textArea.value = text;
+    document.body.appendChild(textArea);
+  }
+  //选择内容
+  function selectText() {
+    var range,
+        selection;
+
+    if (isOS()) {
+      range = document.createRange();
+      range.selectNodeContents(textArea);
+      selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      textArea.setSelectionRange(0, 999999);
+    } else {
+      textArea.select();
+    }
+  }
+
+//复制到剪贴板
+  function copyToClipboard() {        
+    try{
+      if(document.execCommand("Copy")){
+        alert("复制成功！");  
+      }else{
+        alert("复制失败！请手动复制！");
+      }
+    }catch(err){
+      alert("复制错误！请手动复制！")
+    }
+    document.body.removeChild(textArea);
+  }
+
+  copy = function(text) {
+    createTextArea(text);
+    selectText();
+    copyToClipboard();
+  };
+
+  return {
+    copy: copy
+  };
+})(window, document, navigator);
+
+
+
+//使用函数
+//$("#copy").on("tap",function(){
+$("#copy").on("click",function(){
+  var  val = $("#textAreas").val();
+  Clipboard.copy(val);
+});
+
+  </script>
+</html>
+

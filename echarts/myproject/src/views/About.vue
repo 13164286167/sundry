@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div id="echarts">
-      <button @click='handleClick'>change</button>
-      <Echarts :edata='aboutData'></Echarts>
+      <!-- <button @click='handleClick'>change</button>
+      <Echarts :edata='aboutData'></Echarts> -->
     </div>
   </div>
 </template>
