@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #aa{
+      height: 500px;
+      background: rgb(13, 206, 142);
+      cursor: pointer;
+    }
+    #noClick{
+      position: absolute;
+      top: 150px;
+      left:150px;
+      height: 100px;
+      width: 100px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 100px;
+      background: rgb(255, 206, 142);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="aa" >
+    底坐
+  </div>
+  <div id="noClick" >
+    浮层
+  </div>
+  <script>
+    function handleClick(e){
+      console.log(e.target.innerText)
+    }
+    // parent.addEventListener("click",handleClick)
+    aa.addEventListener("click",handleClick)
+    aa.addEventListener('mouseover', handleClick);
+    noClick.interactive = true;
+  </script>
+</body>
+</html>
