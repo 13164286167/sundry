@@ -2,6 +2,7 @@
   <div>
     <div ref="test">1</div>
     {{this.test.text}}
+    
   </div>
 </template>
 <script>
