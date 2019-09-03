@@ -18,91 +18,175 @@ export default {
       let myChart = this.$echarts.init(this.$refs.mainEcharts);
 
       let option = {
+        backgroundColor:'#fff',
         tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            trigger: 'item',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            },
+            padding: 10,
+            formatter: function(params) {
+                return params.name + '</br>' + '总&emsp;数：' + params.value + '</br>' + '待处理：' + params.data.cost + '<br/>'  + '已授权：' + params.data.early + '<br/>' + '已拒绝：' + params.data.index + '<br/>' + '回收授权：' + params.data.cur
+            }
+        },
+        xAxis: [
+          {
+            type : 'category',
+            axisLine:{
+                // show:false,
+                lineStyle:{
+                    color:'#DDDDDD',
+                    // width:0
+                }
+            },
+            splitLine:{
+                // show:false
+            },
+            axisTick:{
+                // show:false
+            },
+            axisLabel:{
+                // show:false,
+                textStyle:{
+                    color:'#999'
+                }
+            },
+            data: function () {
+                var list = [];
+                for(var i = 1;i<=12;i++){
+                    list.push(i+'月份');
+                }
+                return list;
+            }()
           }
-        },
-        legend: {
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
-        },
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLine:{
+                    // show:false,
+                    lineStyle:{
+                        color:'#DDDDDD',
+                        // width:1
+                    }
+                },
+                splitLine:{
+                    // show:false
+                },
+                axisLabel:{
+                    // show:false,
+                    textStyle:{
+                        color:'#999'
+                    }
+                }
+            }
+        ],
         grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
+            x: 45,
+            x2: 15,
+            y: 25,
+            y2: 15,
+            backgroundColor:'#fff',
+            borderWidth: 0
         },
-        xAxis: {
-          type: "value",
-          splitLine: {
-            lineStyle: {
-              type: "dashed",
-              color: "rgba(101,113,124,0)"
+        series: [{
+            name: '指标',
+            type: 'bar',
+            // barWidth: 20,
+            itemStyle:{
+                normal:{
+                    barBorderRadius: 5,
+                    color: function(params) {
+                        console.log(params)
+                        var colorList = [     //柱子颜色
+                            '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                            '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                            '#D7504B','#C6E579','#F4E001'
+                        ];
+                        return colorList[params.dataIndex]
+                    }
+                },
+                emphasis:{
+                    barBorderRadius: 5
+                }
+            },
+            data: [{
+                value: 20,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:1
+            }, {
+                value: 15,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:1
+            }, {
+                value: 18,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:1
+            }, {
+                value: 10,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:1
+            },{
+                value: 13,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 13,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 14,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 13,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 16,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 25,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 21,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
+            },{
+                value: 14,
+                cost: 4,
+                early: 6,
+                index: 2,
+                cur:0
             }
-          }
-        },
-        yAxis: {
-          type: "category",
-          max: 20,
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-          splitLine: {
-            show: true,
-            lineStyle: {
-              type: "dashed",
-              color: "rgba(101,113,124,1)"
-            }
-          },
-          axisLine: {
-            lineStyle: {
-              color: "#A4ACBF",
-              fontSize: 16,
-              opacity: 0
-            }
-          },
-          axisTick: {
-            //y轴刻度线
-            show: false
-          }
-        },
-        series: [
-          {
-            height: 10,
-            barWidth: "50%",
-            barGap: "-5%",
-            name: "直接访问",
-            type: "bar",
-            stack: "总量",
-            data: [320, 302, 301, 334, 390, 330, 320]
-          },
-          {
-            name: "邮件营销",
-            type: "bar",
-            stack: "总量",
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: "联盟广告",
-            type: "bar",
-            stack: "总量",
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: "视频广告",
-            type: "bar",
-            stack: "总量",
-            data: [150, 212, 201, 154, 190, 330, 410]
-          },
-          {
-            name: "搜索引擎",
-            type: "bar",
-            stack: "总量",
-
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
-          }
-        ]
+            ]
+        }]
       };
+
       myChart.setOption(option);
     }
   }

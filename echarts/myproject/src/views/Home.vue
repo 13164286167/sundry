@@ -11,6 +11,7 @@
 // @ is an alias to /src
 import {translate} from '@/assets/tangbo/index'
 import main from '@/assets/json/main.json'
+
 import resource from '@/assets/json/resource.json'
 export default {
   name: "home",
