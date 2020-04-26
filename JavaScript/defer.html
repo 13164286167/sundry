@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defer</title>
+    <script defer="defer">
+        console.log("header打印1")
+    </script>
+    <script defer="defer" src="./defer.js"></script>
+</head>
+<body>
+    <script>
+        console.log("body打印2")
+    </script>
+</body>
+</html>
